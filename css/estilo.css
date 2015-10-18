@@ -1,0 +1,43 @@
+body{
+    font-family: fontediva, serif !important;
+}
+@font-face {
+    font-family: "fontediva";
+    src: url(Champagne_Limousines-Thick.ttf);
+}
+
+.fundinho-cinza {
+    background-color: #ececf0;
+    border-radius: 5px 5px;
+    padding-top: 20px;
+
+}
+.questao{
+    margin-bottom: 10px;
+    padding: 20px;
+}
+.alternativa{
+    padding-left: 50px;
+}
+
+.errada {
+   background: red;
+    color: white;
+
+}
+.certa{
+    background: forestgreen;
+    color: white;
+}
+.numero-questao{
+    background-color: #9095ff;
+    border: 1px solid #9095ff;
+    border-radius: 10px;
+    color: white;
+    font-size: smaller;
+    display: inline-block;
+    padding: 2px;
+}
+.bordado{
+    border: 1px solid black;
+}
