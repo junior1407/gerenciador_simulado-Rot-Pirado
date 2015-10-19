@@ -8,19 +8,18 @@
 
 <body>
 <div class="container text-center">
-    <h2>
+    <h1>
         <legend>Resultado</legend>
-    </h2>
+    </h1>
 </div>
 
 
 <?php
-header('Content-Type: text/html; charset=utf-8');
 
 require("bd.php");
 $contador = 0;
 $acertos = 0;
-?>A
+?>
 
 <?php
 foreach ($questoes as $atual) {
@@ -38,54 +37,69 @@ foreach ($questoes as $atual) {
     <div class="container fundinho-cinza questao">
         <div class="numero-questao">Questao <?php echo $contador; ?></div> <?php echo ($atual["enunciado"]) . "<br>"; ?>
         <div class="alternativa ">
-            <input <?php if ($marcada == 'a') {echo "checked ";} ?>type="radio" required name="<?php echo($contador); ?>" value="a">
-                <?php echo($atual["a"]);
-                if (('a' == $marcada) && ('a' != $certa)) {
-                    echo ('   <span style="color: red" class="glyphicon glyphicon-remove" aria-hidden="true"></span>');
-                }
-                if ('a'==$certa){
-                    echo ('   <span style="color: green" class="glyphicon glyphicon-ok" aria-hidden="true"></span>');
-                 }
+            <input <?php if ($marcada == 'a') {
+                echo "checked ";
+            } ?>type="radio" required name="<?php echo($contador); ?>" value="a">
+            <?php echo($atual["a"]);
+            if (('a' == $marcada) && ('a' != $certa)) {
+                echo('   <span style="color: red" class="glyphicon glyphicon-remove" aria-hidden="true"></span>');
+            }
+            if ('a' == $certa) {
+                echo('   <span style="color: green" class="glyphicon glyphicon-ok" aria-hidden="true"></span>');
+            }
             ?></div>
         <div class="alternativa ">
-            <input <?php if ($marcada == 'b') {echo "checked ";} ?>type="radio" required name="<?php echo($contador); ?>" value="b">
+            <input <?php if ($marcada == 'b') {
+                echo "checked ";
+            } ?>type="radio" name="<?php echo($contador); ?>" value="b">
             <?php echo($atual["b"]);
             if (('b' == $marcada) && ('b' != $certa)) {
-                echo ('   <span style="color: red" class="glyphicon glyphicon-remove" aria-hidden="true"></span>');
+                echo('   <span style="color: red" class="glyphicon glyphicon-remove" aria-hidden="true"></span>');
             }
-            if ('b'==$certa){
-                echo ('   <span style="color: green" class="glyphicon glyphicon-ok" aria-hidden="true"></span>');
+            if ('b' == $certa) {
+                echo('   <span style="color: green" class="glyphicon glyphicon-ok" aria-hidden="true"></span>');
             }
             ?></div>
         <div class="alternativa ">
-            <input <?php if ($marcada == 'c') {echo "checked ";} ?>type="radio" required name="<?php echo($contador); ?>" value="c">
+            <input <?php if ($marcada == 'c') {
+                echo "checked ";
+            } ?>type="radio" name="<?php echo($contador); ?>" value="c">
             <?php echo($atual["c"]);
             if (('c' == $marcada) && ('c' != $certa)) {
-                echo ('   <span style="color: red" class="glyphicon glyphicon-remove" aria-hidden="true"></span>');
+                echo('   <span style="color: red" class="glyphicon glyphicon-remove" aria-hidden="true"></span>');
             }
-            if ('c'==$certa){
-                echo ('   <span style="color: green" class="glyphicon glyphicon-ok" aria-hidden="true"></span>');
+            if ('c' == $certa) {
+                echo('   <span style="color: green" class="glyphicon glyphicon-ok" aria-hidden="true"></span>');
             }
             ?></div>
         <div class="alternativa ">
-            <input <?php if ($marcada == 'd') {echo "checked ";} ?>type="radio" required name="<?php echo($contador); ?>" value="d">
+            <input <?php if ($marcada == 'd') {
+                echo "checked ";
+            } ?>type="radio" name="<?php echo($contador); ?>" value="d">
             <?php echo($atual["d"]);
             if (('d' == $marcada) && ('d' != $certa)) {
-                echo ('   <span style="color: red" class="glyphicon glyphicon-remove" aria-hidden="true"></span>');
+                echo('   <span style="color: red" class="glyphicon glyphicon-remove" aria-hidden="true"></span>');
             }
-            if ('d'==$certa){
-                echo ('   <span style="color: green" class="glyphicon glyphicon-ok" aria-hidden="true"></span>');
+            if ('d' == $certa) {
+                echo('   <span style="color: green" class="glyphicon glyphicon-ok" aria-hidden="true"></span>');
             }
             ?></div>
-        </div>
+    </div>
 
 
 <?php }
 ?>
-<div class="container">
-    <div class="col-lg-6">
-        Acertos : <?php echo($acertos . "/" . count($questoes)); ?>
+<div class="container ">
+    <h4 class="text-center"> Pontuação </h4>
+
+    <div class="col-lg-offset-4 col-lg-2 text-center">
+        Acertos :
     </div>
+    <div class="col-lg-2 text-center ">
+        <?php
+        echo ($acertos) . " / " . count($questoes) . " ( " . number_format(($acertos * 100 / count($questoes)), 2, ",", ".") . "% )"; ?>
+    </div>
+    <div class="col-lg-offset-4"></div>
 </div>
 
 
